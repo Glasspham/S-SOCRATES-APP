@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../services/agent_api.dart';
+import '../services/text_to_speak.dart';
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
 
@@ -26,6 +27,8 @@ class _ChatScreenState extends State<ChatScreen> {
     controller.clear();
 
     String reply = await api.sendMessage(text);
+
+    speak(reply);
 
     setState(() {
       messages.add({"text": reply, "user": false});

@@ -21,7 +21,10 @@ class AgentAPI {
     if (response.statusCode == 200) {
 
       final data = jsonDecode(response.body);
-    
+    //   String reply = await api.sendMessage(text);
+
+    //   speak(reply);
+
       return data["response"];
 
     } else {
