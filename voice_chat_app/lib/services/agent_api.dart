@@ -3,7 +3,8 @@ import 'package:http/http.dart' as http;
 
 class AgentAPI {
 
-  final String baseUrl = "http://127.0.0.1:8000/chat";
+  // địa chỉ backend
+  final String baseUrl = "http://localhost:8000/chat";
 
   Future<String> sendMessage(String message) async {
 
@@ -17,8 +18,15 @@ class AgentAPI {
       }),
     );
 
-    final data = jsonDecode(response.body);
+    if (response.statusCode == 200) {
 
-    return data["response"];
+      final data = jsonDecode(response.body);
+    
+      return data["response"];
+
+    } else {
+
+      throw Exception("API error");
+    }
   }
 }

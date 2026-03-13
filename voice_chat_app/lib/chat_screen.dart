@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../services/agent_api.dart';
-
 class ChatScreen extends StatefulWidget {
   const ChatScreen({super.key});
 
